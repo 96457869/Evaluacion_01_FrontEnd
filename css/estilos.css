@@ -1,0 +1,459 @@
+/* aqui intente incorporar como un estilo mas profesional para mi curriculum */
+:root {
+    --color-fondo: #f1f5f9;
+    --color-blanco: #ffffff;
+    --color-texto: #1e293b;
+    --color-texto-claro: #64748b;
+    --color-acento: #2563eb;
+    --color-gradiente: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+    --color-hover-bg: #f8fafc; 
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* aqui yo hice el fondo general del cv */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-fondo);
+    /* le agregue un patron de puntos super sutil de fondo para q no sea tan plano y parezca como papel */
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 30px 30px; 
+    color: var(--color-texto);
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* decidi dejar el contorno mas limpio y formal */
+.cv-container {
+    width: 100%;
+    max-width: 900px;
+    background-color: var(--color-blanco);
+    border-radius: 12px; /* le quite un poco de curva a los bordes para q se vea mas serio */
+    
+    /* le puse un borde finito gris */
+    border: 1px solid #cbd5e1; 
+    /* se me ocurrio ponerle una linea azul arriba para q resalte */
+    border-top: 8px solid var(--color-acento); 
+    
+    /* una sombrita para q parezca q el cv esta flotando */
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1); 
+    overflow: hidden;
+}
+
+/* aqui estableci el encabezado y la foto de perfil la foto que puse mia no la hice muy profesional pero la saque para la evalucacion obvio en un ambiente mas profesional pondre una mas profesional */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 50px 40px;
+    background: var(--color-blanco);
+    position: relative;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.foto-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 40px;
+}
+
+/* ajuste el circulo de la foto para q sea mas minimalista */
+.foto-perfil {
+    width: 210px; 
+    height: 210px; 
+    border-radius: 50%; 
+    flex-shrink: 0;
+    
+    padding: 24px; /* deje este espacio a proposito para el texto de al rededor */
+    background: #f8fafc; /* un fondito claro detras de la foto */
+    border: 1px solid #e2e8f0; /* bordes ligeros */
+    box-shadow: 0 8px 20px -5px rgba(0,0,0,0.08); /* otra sombra suavecita aqui */
+        
+    position: relative;
+    z-index: 10;
+}
+
+.foto-perfil img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; 
+    object-fit: cover; 
+    object-position: center; 
+    border: 3px solid var(--color-blanco); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* esto lo puse para separar mi cara del fondo del anillo */
+    position: relative;
+    z-index: 2; 
+}
+
+/* aqui configure el texto en circulo sin la animacion para que no se vea tan de mentira */
+.texto-circular {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    z-index: 15; 
+    /* decidi quitarle la animacion de girar */
+}
+
+.texto-circular svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.texto-circular text {
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 700; 
+    fill: #475569; /* elegi un color gris oscuro en vez de negro puro para el texto */
+    letter-spacing: 2px;
+}
+
+.info-titulo h1 {
+    margin: 0 0 10px 0;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: var(--color-gradiente);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.info-titulo p {
+    margin: 0;
+    font-size: 15px;
+    color: var(--color-texto-claro);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* aqui me dedique a hacer el cuerpo principal */
+.main-content {
+    display: flex;
+    min-height: auto; 
+}
+
+.columna-izquierda {
+    width: 35%;
+    padding: 40px;
+    background-color: #f8fafc;
+    border-right: 1px solid #e2e8f0; 
+}
+
+.columna-derecha {
+    width: 65%;
+    padding: 40px;
+}
+
+.bloque {
+    margin-bottom: 40px;
+}
+
+/* aqui se me ocurrio que poner marcos y colores para los titulos se veria mas estetico y mas bonito */
+
+.titulo-caja {
+    font-size: 15px;
+    color: var(--color-blanco);
+    background: var(--color-gradiente);
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.titulo-oscuro {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tag-grado {
+    display: inline-block;
+    background: #dbeafe; 
+    color: #1e40af; 
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 15px;
+    margin: 0 0 8px 0;
+    border: 1px solid #bfdbfe;
+}
+.tag-telecom { background: #e0e7ff; color: #3730a3; border-color: #c7d2fe; }
+.tag-basica { background: #f1f5f9; color: #475569; border-color: #cbd5e1; }
+.tag-trabajo { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+
+.tag-especialidad {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+    border: 1px solid #bae6fd;
+}
+.tag-redes { background: #dcfce7; color: #166534; border-color: #bbf7d0; }
+.tag-datos { background: #f3e8ff; color: #6b21a8; border-color: #e9d5ff; }
+.tag-seguridad { background: #fee2e2; color: #991b1b; border-color: #fecaca; }
+.tag-multi { background: #ffedd5; color: #9a3412; border-color: #fed7aa; }
+
+
+/* aca vi lo de las listas y los textos */
+.lista-custom {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-custom li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #475569;
+}
+
+.lista-custom li::before {
+    content: "❯";
+    position: absolute;
+    left: 0;
+    color: var(--color-acento);
+    font-weight: bold;
+    font-size: 12px;
+    top: 2px;
+}
+
+/* aqui hice desplegables para que se viera mas profesional cuando uno hace click y puse como flechas para que se note q al hacer click sucede algo */
+details {
+    width: 100%;
+}
+
+summary {
+    display: block; 
+    cursor: pointer;
+    list-style: none; 
+    outline: none;
+    position: relative;
+    padding: 8px 30px 8px 8px; 
+    border-radius: 6px;
+    background: transparent;
+    transition: background 0.3s ease;
+}
+
+summary:hover {
+    background: #f1f5f9; 
+}
+
+summary::-webkit-details-marker {
+    display: none; 
+}
+
+summary::after {
+    content: '▶'; 
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-acento);
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+    content: '▼'; 
+    color: #1e293b;
+}
+
+.info-oculta {
+    margin-top: 5px;
+    padding: 12px 15px;
+    background-color: #f8fafc; 
+    border-left: 3px solid var(--color-acento); 
+    border-radius: 0 8px 8px 0;
+    font-size: 13.5px;
+    color: #475569;
+    line-height: 1.6;
+    animation: deslizarAbajo 0.3s ease-out; 
+}
+
+@keyframes deslizarAbajo {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* segui con unas tarjetas interactivas */
+.item-historial {
+    margin-bottom: 30px;
+    padding-left: 20px;
+    border-left: 2px solid #e2e8f0;
+    position: relative;
+}
+
+.item-historial::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 8px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--color-blanco);
+    border: 2px solid var(--color-acento);
+}
+
+.tarjeta-interactiva {
+    margin-left: -15px;
+}
+
+.institucion {
+    margin: 5px 0 10px 0;
+    font-size: 13.5px;
+    color: var(--color-acento);
+    font-weight: 600;
+}
+
+.institucion em {
+    color: var(--color-texto-claro);
+    font-weight: normal;
+    background: #f1f5f9;
+    padding: 2px 8px;
+    border-radius: 20px;
+    font-size: 11.5px;
+    margin-left: 5px;
+}
+
+.descripcion {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #64748b;
+    padding-left: 8px;
+}
+
+/* esta parte corresponde al pie de la pagina */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 40px;
+    background: #f8fafc; /* puse el footer clarito para seguir con el diseño limpio */
+    color: #475569;
+    border-top: 1px solid #e2e8f0; 
+}
+
+.contacto-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contacto-item:hover {
+    color: var(--color-acento);
+    transform: translateY(-2px);
+}
+
+.icono {
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+/* esta seccion la dedique a los botones */
+.acciones-header {
+    margin-top: 15px;
+    display: flex;
+    gap: 12px; 
+    flex-wrap: wrap; 
+}
+
+.btn-interactivo {
+    padding: 8px 18px;
+    background: var(--color-gradiente);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px; /* los botones tambien los hice menos redondos para q combinen */
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-interactivo:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+    color: white;
+}
+
+.btn-secundario {
+    background: transparent;
+    color: var(--color-acento);
+    border: 2px solid var(--color-acento);
+    box-shadow: none;
+}
+
+.btn-secundario:hover {
+    background: var(--color-acento);
+}
+
+.badge {
+    background: #eff6ff;
+    color: var(--color-acento);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11.5px;
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 10px;
+    border: 1px solid #bfdbfe;
+}
+
+.icono-lista {
+    display: inline-block;
+    margin-right: 8px;
+}
+
+/* mejora del diseño en terminos mas responsivos */
+@media (max-width: 850px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .foto-wrapper {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .acciones-header {
+        justify-content: center;
+    }
+
+    .main-content {
+        flex-direction: column;
+    }
+
+    .columna-izquierda, .columna-derecha {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0; 
+    }
+
+    .columna-derecha {
+        border-bottom: none;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
